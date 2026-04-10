@@ -3,54 +3,176 @@
 <head>
 <meta charset="UTF-8">
 <title>One Card Zombies</title>
+
 <style>
 body {
-  background:#000;
-  color:white;
-  font-family:Arial;
+  background:#0b0b0b;
   display:flex;
   justify-content:center;
   align-items:center;
   height:100vh;
+  font-family:'Trebuchet MS', sans-serif;
 }
+
 .container {
   display:flex;
-  gap:20px;
+  gap:30px;
 }
+
 .card {
   width:320px;
   height:500px;
-  background:linear-gradient(180deg,#1a0000,#400000);
-  border:2px solid red;
-  border-radius:15px;
-  padding:10px;
+  border-radius:20px;
+  padding:16px;
+  color:#fff;
+  box-shadow:0 0 25px rgba(0,0,0,0.8);
+  display:flex;
+  flex-direction:column;
   font-size:11px;
-  box-shadow:0 0 20px rgba(255,0,0,0.5);
+}
+
+.front {
+  background:linear-gradient(180deg,#1a0000,#400000);
+  border:2px solid #ff3b3b;
+}
+
+.back {
+  background:linear-gradient(180deg,#111,#222);
+  border:2px solid #888;
+}
+
+.title {
+  text-align:center;
+  font-size:16px;
+  font-weight:bold;
+  letter-spacing:1px;
+}
+
+.subtitle {
+  text-align:center;
+  font-size:10px;
+  color:#ccc;
+}
+
+.section {
+  margin-top:8px;
+  padding:6px;
+  border-radius:8px;
+  background:rgba(0,0,0,0.35);
+}
+
+.section b {
+  color:#ff4d4d;
+}
+
+.footer {
+  margin-top:auto;
+  text-align:center;
+  font-size:9px;
+  color:#aaa;
 }
 </style>
 </head>
+
 <body>
 
 <div class="container">
-  <div class="card">
-    <h2>🧟 One Card Zombies</h2>
-    <p><b>Player:</b> HP 10 | DEF 2 | Dice 5</p>
-    <p><b>Base:</b> 10 + (5 × players)</p>
-    <p><b>Dice:</b> 1–2 DEF | 3–4 ATK | 5–6 Repair</p>
-    <p><b>Turn:</b> Player → Quest → Zombie → Combat → Cleanup</p>
+
+<!-- FRONT -->
+<div class="card front">
+  <div class="title">🧟 ONE CARD ZOMBIES</div>
+  <div class="subtitle">Rollbound D6 Edition</div>
+
+  <div class="section">
+    <b>🎲 PLAYER</b><br>
+    HP 10 | DEF 2 | Dice 5<br>
+    Choose: 🔪 Melee (+2 damage) OR 🔫 Ranged
   </div>
 
-  <div class="card">
-    <h2>⚔️ Combat</h2>
-    <p><b>Melee:</b> +2 damage</p>
-    <p><b>Ranged:</b> 5–6 = hit (+1 damage)</p>
-    <p><b>Loot (1d6):</b><br>
-    1 Medkit<br>
-    2 Armor<br>
-    3 Nails<br>
-    4 Ammo<br>
-    5–6 Nothing</p>
+  <div class="section">
+    <b>🏠 BASE</b><br>
+    HP: 10 + (5 × players)<br>
+    No DEF
   </div>
+
+  <div class="section">
+    <b>🎲 DICE</b><br>
+    1–2 🛡️ | 3–4 ⚔️ | 5–6 🔧 (+1 Base HP)
+  </div>
+
+  <div class="section">
+    <b>🔁 TURN</b><br>
+    Player Roll → Quest → Zombie Roll → Combat → Cleanup
+  </div>
+
+  <div class="section">
+    <b>🧟 QUEST (1d6)</b><br>
+    1–2 Spawn (players÷2)<br>
+    3–4 Spawn 1<br>
+    5 Loot<br>
+    6 Safe (Heal Base 1d6 OR Loot)
+  </div>
+
+  <div class="section">
+    <b>⚔️ ZOMBIES</b><br>
+    HP 5 | ATK 1 | DEF 1 | Dice 3<br>
+    <b>Abilities:</b><br>
+    Gang Up: 3+ zombies → +1 ATK<br>
+    Horde Pressure: 5+ zombies → +1 die
+  </div>
+
+  <div class="footer">
+    Uses Rollbound D6 System (Alpha)
+  </div>
+</div>
+
+<!-- BACK -->
+<div class="card back">
+  <div class="title">⚔️ COMBAT & SURVIVAL</div>
+
+  <div class="section">
+    <b>🔪 MELEE</b><br>
+    Each hit deals +2 damage
+  </div>
+
+  <div class="section">
+    <b>🔫 RANGED</b><br>
+    ATK results = bullet dice<br>
+    Each 5–6 = 1 hit (+1 damage)
+  </div>
+
+  <div class="section">
+    <b>🧟 ESCALATION</b><br>
+    Every 5 turns: Zombies gain +1 HP<br>
+    Every 10 turns: Zombies gain +1 ATK
+  </div>
+
+  <div class="section">
+    <b>🏚️ BASE DAMAGE</b><br>
+    Each zombie deals 1 damage to Base
+  </div>
+
+  <div class="section">
+    <b>🎒 LOOT TABLE (1d6)</b><br>
+    1 Medkit (Heal 4 HP)<br>
+    2 Armor (+1 DEF, stacks)<br>
+    3 Nails (+1 Melee damage, scales)<br>
+    4 Ammo (+1 Ranged damage, scales)<br>
+    5–6 Nothing
+  </div>
+
+  <div class="section">
+    <b>🏁 WIN / ☠️ LOSS</b><br>
+    Survive X turns OR clear all zombies + Safe turn<br>
+    Lose if Player HP = 0 or Base HP = 0
+  </div>
+
+  <div class="footer">
+    Refer to Rollbound D6 System<br>
+    Built using Alpha Rules
+  </div>
+</div>
+
 </div>
 
 </body>
