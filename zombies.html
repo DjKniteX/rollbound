@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>One Card Zombies</title>
+<style>
+body {
+  background:#000;
+  color:white;
+  font-family:Arial;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+.container {
+  display:flex;
+  gap:20px;
+}
+.card {
+  width:320px;
+  height:500px;
+  background:linear-gradient(180deg,#1a0000,#400000);
+  border:2px solid red;
+  border-radius:15px;
+  padding:10px;
+  font-size:11px;
+  box-shadow:0 0 20px rgba(255,0,0,0.5);
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="card">
+    <h2>🧟 One Card Zombies</h2>
+    <p><b>Player:</b> HP 10 | DEF 2 | Dice 5</p>
+    <p><b>Base:</b> 10 + (5 × players)</p>
+    <p><b>Dice:</b> 1–2 DEF | 3–4 ATK | 5–6 Repair</p>
+    <p><b>Turn:</b> Player → Quest → Zombie → Combat → Cleanup</p>
+  </div>
+
+  <div class="card">
+    <h2>⚔️ Combat</h2>
+    <p><b>Melee:</b> +2 damage</p>
+    <p><b>Ranged:</b> 5–6 = hit (+1 damage)</p>
+    <p><b>Loot (1d6):</b><br>
+    1 Medkit<br>
+    2 Armor<br>
+    3 Nails<br>
+    4 Ammo<br>
+    5–6 Nothing</p>
+  </div>
+</div>
+
+</body>
+</html>
